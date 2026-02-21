@@ -1,0 +1,92 @@
+:root{
+    --bg: #0f172a;
+    --grid-empty: #1e293b;
+    --accent: #38bdf8;
+    --danger: #f43f5e;
+}
+
+body{
+    background: var(--bg);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container{
+    text-align: center;
+}
+
+.score-box span { font-size: 20px; font-weight: 600; color: var(--accent); letter-spacing: 2px; }
+#score { font-size: 3.5rem; margin: 0 0 20px 0; }
+
+canvas{
+    background: var(--grid-empty);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.inventory {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    min-width: 110px;
+}
+
+.piece-canvas {
+    cursor: grab;
+    background: rgb(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.piece-canvas:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+.reset-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background: var(--danger);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #1e29eb;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--accent);
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px); }
+    50% { transform: translate(5px); }
+    75% { transform: translate(-5px); }
+    100% { transform: translate(0); }
+}
+
+.shake-animation {
+    animation: shake 0.2s ease-in-out;
+}
